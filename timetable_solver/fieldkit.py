@@ -248,8 +248,8 @@ class App:
     def get(self, target):
         return self.handle("GET", target)
 
-    def post(self, target, **form):
-        return self.handle("POST", target, {k: str(v) for k, v in form.items()}, token=self.token)
+    def post(self, url, /, **form):
+        return self.handle("POST", url, {k: str(v) for k, v in form.items()}, token=self.token)
 
     def serve(self, port=8000, host="127.0.0.1"):
         app = self
